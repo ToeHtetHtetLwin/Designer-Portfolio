@@ -1,13 +1,14 @@
 <div class="min-h-screen bg-[#fafafa] p-6 md:p-12">
   
   <section class="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div class="relative group">
-      <div class="absolute -top-4 -left-4 w-full h-full border border-pink-100 rounded-sm group-hover:top-0 group-hover:left-0 transition-all duration-700"></div>
-      <div class="relative z-10 overflow-hidden shadow-lg">
+    <div class="relative hero-image-container">
+      <div class="absolute -top-4 -left-4 w-full h-full border border-pink-200 rounded-sm decorative-border z-0"></div>
+      
+      <div class="relative z-10 overflow-hidden shadow-2xl rounded-sm">
         <img 
           src="https://f.hellowork.com/obs-static-images/seo/ObsJob/designer.jpg" 
           alt="Diana - The Designer" 
-          class="w-full h-[550px] object-cover" 
+          class="w-full h-[550px] object-cover hero-img" 
         />
       </div>
     </div>
@@ -23,30 +24,27 @@
 
       <div class="space-y-4 text-neutral-600 font-light leading-relaxed text-sm">
         <p>
-          With over a decade of experience in the heart of the fashion industry, Diana has redefined bespoke tailoring by blending heritage French techniques with contemporary architectural silhouettes. Her journey began in traditional ateliers, where she mastered the "Soul of the Stitch."
+          With over a decade of experience in the heart of the fashion industry, Diana has redefined bespoke tailoring by blending heritage French techniques with contemporary architectural silhouettes.
         </p>
         <p class="border-l-2 border-pink-200 pl-4 italic">
-          "A dress should not just be worn; it should be lived in. My mission is to translate a woman’s personality into a wearable masterpiece that stands the test of time."
-        </p>
-        <p>
-          Each creation at the Diana Atelier is a collaborative journey, ensuring that every fabric choice, bead, and seam aligns perfectly with the wearer's vision.
+          "A dress should not just be worn; it should be lived in. My mission is to translate a woman’s personality into a wearable masterpiece."
         </p>
       </div>
 
       <div class="grid grid-cols-2 gap-4 py-4 border-y border-neutral-100">
         <div>
           <h4 class="text-[10px] uppercase tracking-widest text-neutral-800 font-bold">Experience</h4>
-          <p class="text-xs text-neutral-400">10+ Years in Haute Couture</p>
+          <p class="text-xs text-neutral-400">10+ Years in Couture</p>
         </div>
         <div>
           <h4 class="text-[10px] uppercase tracking-widest text-neutral-800 font-bold">Specialty</h4>
-          <p class="text-xs text-neutral-400">Bespoke Bridal & Red Carpet</p>
+          <p class="text-xs text-neutral-400">Bespoke Bridal & Gala</p>
         </div>
       </div>
 
       <div class="flex gap-4 pt-2">
-        <button routerLink="/contact" class="px-8 py-3 bg-neutral-900 text-white text-[9px] uppercase tracking-[0.3em] hover:bg-pink-600 transition-colors">Book a Consultation</button>
-        <button routerLink="/story" class="px-8 py-3 border border-neutral-200 text-neutral-800 text-[9px] uppercase tracking-[0.3em] hover:border-pink-200 transition-colors">Full Story</button>
+        <button routerLink="/contact" class="px-8 py-3 bg-neutral-900 text-white text-[9px] uppercase tracking-[0.3em] hover:bg-pink-600 transition-all">Book Consultation</button>
+        <button routerLink="/story" class="px-8 py-3 border border-neutral-200 text-neutral-800 text-[9px] uppercase tracking-[0.3em] hover:border-pink-300 transition-all">Full Story</button>
       </div>
     </div>
   </section>
@@ -55,23 +53,23 @@
     <div class="text-center space-y-2">
       <span class="text-pink-200 text-2xl font-serif">01.</span>
       <h5 class="text-[11px] uppercase tracking-widest font-bold">Custom Tailoring</h5>
-      <p class="text-[11px] text-neutral-400 leading-relaxed px-4">Perfectly fitted garments designed exclusively for your unique body measurements.</p>
+      <p class="text-[11px] text-neutral-400 leading-relaxed px-4">Garments designed exclusively for your unique body measurements.</p>
     </div>
     <div class="text-center space-y-2 border-x border-neutral-50">
       <span class="text-pink-200 text-2xl font-serif">02.</span>
-      <h5 class="text-[11px] uppercase tracking-widest font-bold">Sourcing Excellence</h5>
-      <p class="text-[11px] text-neutral-400 leading-relaxed px-4">Working with the finest European silks, ethically sourced lace, and premium embellishments.</p>
+      <h5 class="text-[11px] uppercase tracking-widest font-bold">Fabric Sourcing</h5>
+      <p class="text-[11px] text-neutral-400 leading-relaxed px-4">Working with the finest European silks and premium embellishments.</p>
     </div>
     <div class="text-center space-y-2">
       <span class="text-pink-200 text-2xl font-serif">03.</span>
       <h5 class="text-[11px] uppercase tracking-widest font-bold">Global Shipping</h5>
-      <p class="text-[11px] text-neutral-400 leading-relaxed px-4">Bringing the atelier experience to your doorstep, no matter where you are in the world.</p>
+      <p class="text-[11px] text-neutral-400 leading-relaxed px-4">Bringing the luxury atelier experience to your doorstep, worldwide.</p>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-center mb-8">
-      <h2 class="text-2xl font-serif text-neutral-900 uppercase tracking-widest">Selected Works</h2>
+      <h2 class="text-2xl font-serif text-neutral-900 uppercase tracking-widest">Creations</h2>
       <a href="#" class="text-[9px] uppercase tracking-widest border-b border-pink-200 pb-1">View Gallery</a>
     </div>
 
@@ -86,7 +84,7 @@
         </p-image>
         <div class="p-4 border-t border-neutral-50 bg-white">
           <h3 class="font-serif text-md text-neutral-800">{{item.title}}</h3>
-          <p class="text-[9px] uppercase tracking-tighter text-neutral-400 mt-1">{{item.material || 'Silk & Lace'}}</p>
+          <p class="text-[9px] uppercase tracking-tighter text-neutral-400 mt-1">{{item.material}}</p>
         </div>
       </div>
     </div>
@@ -109,7 +107,7 @@
       [autoplayInterval]="3000">
       <ng-template let-img pTemplate="item">
         <div class="px-2">
-          <img [src]="img.source" [alt]="img.alt" class="carousel-image h-72 w-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700 rounded-sm shadow-sm" />
+          <img [src]="img.source" [alt]="img.alt" class="carousel-image shadow-sm" />
         </div>
       </ng-template>
     </p-carousel>
