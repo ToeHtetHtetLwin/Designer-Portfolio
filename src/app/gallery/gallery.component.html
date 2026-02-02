@@ -1,0 +1,74 @@
+<div class="min-h-screen bg-[#fafafa] p-8 md:p-16">
+  
+  <section class="max-w-7xl mx-auto mb-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <div class="relative">
+      <div class="absolute -top-6 -left-6 w-full h-full border border-pink-100 rounded-sm"></div>
+      <div class="relative z-10 overflow-hidden shadow-xl">
+        <img 
+          src="https://f.hellowork.com/obs-static-images/seo/ObsJob/designer.jpg" 
+          alt="The Designer" 
+          class="w-full h-[600px] object-cover" 
+        /> </div>
+    </div>
+
+    <div class="space-y-8 max-w-lg">
+      <h3 class="text-pink-400 font-medium tracking-[0.4em] uppercase text-[10px]">The Visionary</h3>
+      <h1 class="text-6xl font-serif text-neutral-900 leading-[1.1]">
+        Meet Diana, <br/> 
+        <span class="italic text-neutral-400 font-light">The Soul of the Stitch</span>
+      </h1>
+      <p class="text-neutral-600 leading-relaxed font-light">
+        With over 10 years of experience in haute couture, I blend traditional craftsmanship with modern silhouettes to create timeless art.
+      </p>
+      <div class="flex gap-6 pt-4">
+        <button routerLink="/story" class="px-10 py-4 bg-neutral-900 text-white text-[10px] uppercase tracking-[0.3em] hover:bg-pink-600 transition-colors">My Story</button>
+        <button routerLink="/contact" class="px-10 py-4 border border-neutral-200 text-neutral-800 text-[10px] uppercase tracking-[0.3em] hover:border-pink-300 transition-colors">Contact</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto mb-20 text-center">
+    <h2 class="text-3xl font-serif text-neutral-900 uppercase tracking-[0.2em]">Selected Works</h2>
+    <div class="w-12 h-[1px] bg-pink-300 mx-auto mt-4"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div *ngFor="let item of projects" class="bg-white p-2">
+      <div class="relative overflow-hidden mb-6">
+        <p-image 
+          [src]="item.url" 
+          [alt]="item.title" 
+          width="100%" 
+          [preview]="true" 
+          imageClass="w-full h-[500px] object-cover"> </p-image>
+      </div>
+      <div class="px-2 pb-4">
+        <h3 class="font-serif text-lg text-neutral-800">{{item.title}}</h3>
+        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-1">{{item.material}}</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="max-w-7xl mx-auto mt-40 pb-20">
+    <div class="flex justify-between items-end mb-12 border-b border-neutral-100 pb-6">
+      <h2 class="text-2xl font-serif text-neutral-900">Inside the Atelier</h2>
+      <a href="#" class="text-[9px] uppercase tracking-[0.3em] text-neutral-400">Instagram</a>
+    </div>
+
+    <p-carousel 
+      [value]="images" 
+      [numVisible]="3" 
+      [numScroll]="1" 
+      [circular]="true"
+      [autoplayInterval]="4000"
+      [responsiveOptions]="responsiveOptions">
+      <ng-template let-img pTemplate="item">
+        <img 
+          [src]="img.source" 
+          [alt]="img.alt" 
+          class="carousel-image" 
+        />
+      </ng-template>
+    </p-carousel>
+  </section>
+</div>
