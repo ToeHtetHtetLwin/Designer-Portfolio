@@ -1,0 +1,213 @@
+<main class="bg-yellow-50 text-yellow-900 min-h-screen relative overflow-x-hidden">
+
+  <!-- CONTACT FORM MODAL -->
+  @if (isFormOpen()) {
+    <div class="fixed inset-0 z-[100] flex items-center justify-center p-6 backdrop-blur-md bg-yellow-900/20">
+      <div class="bg-white w-full max-w-md rounded-[2.5rem] p-10 shadow-2xl border border-yellow-200">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-serif italic text-yellow-900">Get In Touch</h2>
+          <button (click)="toggleContactForm()" class="text-yellow-400 hover:text-yellow-900 text-3xl">×</button>
+        </div>
+        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm.value)" class="space-y-6">
+          <input ngModel name="name" placeholder="YOUR NAME" required
+            class="w-full border-b border-yellow-200 py-3 focus:border-yellow-900 outline-none transition-all text-xs tracking-widest uppercase bg-transparent">
+          <input ngModel name="email" type="email" placeholder="EMAIL ADDRESS" required
+            class="w-full border-b border-yellow-200 py-3 focus:border-yellow-900 outline-none transition-all text-xs tracking-widest uppercase bg-transparent">
+          <textarea ngModel name="message" placeholder="MESSAGE" rows="3" required
+            class="w-full border-b border-yellow-200 py-3 focus:border-yellow-900 outline-none transition-all text-xs tracking-widest uppercase bg-transparent"></textarea>
+          <button type="submit" [disabled]="!contactForm.valid"
+            class="w-full bg-yellow-900 text-white py-5 rounded-full text-[10px] tracking-[0.3em] font-bold hover:bg-yellow-800 disabled:bg-yellow-300 transition-all uppercase">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  }
+
+  <!-- HERO SECTION -->
+  <section class="max-w-7xl mx-auto p-6 pt-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <!-- Left Intro -->
+      <div class="lg:col-span-8 bg-white p-12 md:p-20 rounded-[4rem] shadow-sm border border-yellow-200">
+        <div class="reveal-text flex items-center gap-5 mb-10">
+          <img src="https://i.pravatar.cc/150?u=adam"
+            class="w-20 h-20 rounded-full grayscale border-4 border-yellow-50 shadow-inner hero-img" />
+          <div>
+            <h2 class="text-2xl font-serif italic text-yellow-900">Adam Studio</h2>
+            <p class="text-[10px] uppercase tracking-[0.4em] text-yellow-700 font-bold">Visual Artist</p>
+          </div>
+        </div>
+
+        <h1
+          class="reveal-text text-6xl md:text-8xl font-serif leading-[1] text-yellow-900 mb-10 tracking-tight">
+          Capturing
+          <span class="italic font-light text-yellow-500">silent legacy</span>
+          through lenses.
+        </h1>
+
+        <p class="reveal-text text-yellow-700 leading-relaxed max-w-2xl text-xl font-light mb-12">
+          Hi, my name is <span class="text-yellow-900 font-normal">Adam</span>.
+          I am a landscape and heritage photographer based in Myanmar.
+          Every frame is a tribute to heritage.
+        </p>
+      </div>
+
+      <!-- Sidebar -->
+      <div
+        class="sidebar-card lg:col-span-4 bg-yellow-900 text-yellow-50 p-16 rounded-[4rem] flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="w-2 h-2 bg-green-400 rounded-full animate-ping mb-8"></div>
+
+          <h3 class="text-3xl font-serif italic mb-8 text-yellow-200 leading-tight">
+            Currently available for bookings.
+          </h3>
+
+          <p class="text-yellow-300 font-light mb-12 leading-relaxed">
+            Open for international travel and nature assignments in 2026.
+          </p>
+
+          <button (click)="toggleContactForm()"
+            class="w-full bg-yellow-50 text-yellow-900 py-5 rounded-full text-[10px]  
+                   uppercase tracking-[0.3em] font-bold hover:bg-yellow-200 transition-all shadow-lg">
+            Inquire Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORKS SECTION -->
+  <section id="work-section" class="max-w-7xl mx-auto px-6 py-40">
+    <div class="works-heading text-center mb-24">
+      <p class="text-[10px] uppercase tracking-[0.5em] text-yellow-700 font-bold mb-6">Portfolio Collection</p>
+      <h2 class="text-6xl md:text-7xl font-serif italic text-yellow-900 tracking-tight">My Works</h2>
+      <p class="mt-8 max-w-2xl mx-auto text-yellow-700 font-light leading-relaxed text-lg">
+        A curated gallery of landscapes, heritage, and timeless frames captured across Myanmar.
+      </p>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="photo-grid columns-1 md:columns-2 lg:columns-3 gap-10 space-y-12">
+      @for (photo of filteredPhotos(); track photo.itemImageSrc) {
+        <div class="photo-card group relative bg-white rounded-[2.8rem] overflow-hidden shadow-xl border border-yellow-200">
+          <div class="relative overflow-hidden h-[560px]">
+            <img [src]="photo.itemImageSrc"
+              class="parallax-img w-full h-[130%] object-cover grayscale transition-all duration-[2.5s] group-hover:grayscale-0 group-hover:scale-110" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-yellow-900/70 via-yellow-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700">
+            </div>
+            <div
+              class="absolute top-6 left-6 px-5 py-2 rounded-full bg-white/90 text-[9px] uppercase tracking-[0.4em] font-bold text-yellow-900 shadow-md opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700">
+              {{photo.category}}
+            </div>
+            <div
+              class="absolute bottom-0 left-0 w-full p-10 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+              <h4 class="text-2xl font-serif italic text-white leading-snug">{{photo.title}}</h4>
+              <p class="mt-3 text-yellow-200 text-xs tracking-[0.3em] uppercase">View Story →</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- CUSTOMER REVIEWS SECTION -->
+  <section class="max-w-7xl mx-auto px-6 py-40 bg-yellow-100 rounded-3xl">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-serif italic text-yellow-900 tracking-tight">What Clients Say</h2>
+      <p class="mt-4 text-yellow-700 max-w-2xl mx-auto font-light leading-relaxed">
+        Hear from people who trusted me to capture their precious moments.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="review-card bg-white p-8 rounded-2xl shadow-lg border border-yellow-200">
+        <p class="text-yellow-800 italic mb-4">
+          "Adam captured our wedding perfectly. Every photo tells a story."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://i.pravatar.cc/50?u=client1" class="w-12 h-12 rounded-full" />
+          <div>
+            <p class="font-bold text-yellow-900">Aye Aye</p>
+            <p class="text-yellow-700 text-xs">Bride</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card bg-white p-8 rounded-2xl shadow-lg border border-yellow-200">
+        <p class="text-yellow-800 italic mb-4">
+          "Amazing photographer! Landscapes and heritage shots are breathtaking."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://i.pravatar.cc/50?u=client2" class="w-12 h-12 rounded-full" />
+          <div>
+            <p class="font-bold text-yellow-900">Ko Min</p>
+            <p class="text-yellow-700 text-xs">Traveler</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card bg-white p-8 rounded-2xl shadow-lg border border-yellow-200">
+        <p class="text-yellow-800 italic mb-4">
+          "Professional and creative. Highly recommended for portraits and events."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://i.pravatar.cc/50?u=client3" class="w-12 h-12 rounded-full" />
+          <div>
+            <p class="font-bold text-yellow-900">Su Su</p>
+            <p class="text-yellow-700 text-xs">Client</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="max-w-7xl mx-auto px-6 py-40">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-serif italic text-yellow-900 tracking-tight">Services</h2>
+      <p class="mt-4 text-yellow-700 max-w-2xl mx-auto font-light leading-relaxed">
+        I offer a variety of photography services tailored to your needs.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div
+        class="service-card bg-yellow-100 p-10 rounded-3xl shadow-lg border border-yellow-200 text-center hover:scale-105 transition-transform">
+        <h3 class="text-2xl font-bold text-yellow-900 mb-4">Wedding Photography</h3>
+        <p class="text-yellow-700 font-light">Capturing your special day with timeless and elegant shots.</p>
+      </div>
+      <div
+        class="service-card bg-yellow-100 p-10 rounded-3xl shadow-lg border border-yellow-200 text-center hover:scale-105 transition-transform">
+        <h3 class="text-2xl font-bold text-yellow-900 mb-4">Landscape & Nature</h3>
+        <p class="text-yellow-700 font-light">Beautiful natural scenery captured with artistic precision.</p>
+      </div>
+      <div
+        class="service-card bg-yellow-100 p-10 rounded-3xl shadow-lg border border-yellow-200 text-center hover:scale-105 transition-transform">
+        <h3 class="text-2xl font-bold text-yellow-900 mb-4">Heritage & Architecture</h3>
+        <p class="text-yellow-700 font-light">Preserving Myanmar’s rich heritage through stunning photography.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="relative bg-yellow-900 text-yellow-50 overflow-hidden">
+  <div class="absolute inset-0 opacity-30">
+    <div class="absolute -top-40 left-1/2 w-[600px] h-[600px] bg-yellow-700 rounded-full blur-[180px]"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-10 py-28">
+    <div class="footer-reveal text-center mb-20">
+      <h2 class="text-5xl md:text-6xl font-serif italic tracking-tight">Let’s create something timeless.</h2>
+      <p class="mt-6 text-yellow-300 max-w-xl mx-auto font-light leading-relaxed">
+        Photography is more than images — it’s legacy.
+      </p>
+    </div>
+
+    <div class="footer-bottom border-t border-yellow-800 mt-20 pt-10 text-center text-[10px] uppercase tracking-[0.4em] text-yellow-300">
+      © 2026 Adam Studio — Crafted with Lens + Legacy
+    </div>
+  </div>
+</footer>

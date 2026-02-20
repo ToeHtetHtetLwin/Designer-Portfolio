@@ -1,0 +1,109 @@
+<div class="min-h-screen bg-[#fffafa] flex flex-col items-center justify-center p-6 relative overflow-hidden">
+
+  <!-- Floating Hearts -->
+  <div class="absolute inset-0 pointer-events-none opacity-30">
+    <span class="absolute text-rose-300 text-4xl animate-pulse" style="left: 10%; top: 10%">❤</span>
+    <span class="absolute text-rose-200 text-6xl animate-bounce" style="right: 15%; top: 20%">❤</span>
+    <span class="absolute text-rose-400 text-2xl animate-ping" style="left: 20%; bottom: 20%">❤</span>
+  </div>
+
+  <div class="z-10 text-center w-full max-w-4xl">
+
+    <h1 class="text-5xl font-bold text-rose-600 mb-12 drop-shadow-md">
+      Please Forgive Me... 🥺
+    </h1>
+
+    <!-- Notes -->
+    <div class="flex flex-wrap justify-center gap-8 mb-16">
+
+      <div *ngFor="let note of notes; let i = index"
+           class="note-card w-64 h-64 p-8 flex items-center justify-center text-center"
+           [style.backgroundColor]="note.color"
+           [style.transform]="i % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)'">
+
+        <p class="text-gray-800 font-bold italic text-xl leading-relaxed">
+          {{ note.text }}
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-center gap-8">
+
+      <p-button label="Yes, I Forgive You"
+                icon="pi pi-heart-fill"
+                severity="danger"
+                [rounded]="true"
+                styleClass="p-button-lg px-10 py-4 text-xl shadow-xl"
+                (onClick)="openDialog()">
+      </p-button>
+
+      <button #noBtn
+              (mouseover)="moveButton()"
+              class="px-10 py-4 bg-gray-400 text-white rounded-full shadow-lg font-bold text-xl">
+        No!
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Dialog -->
+  <p-dialog [(visible)]="displayDialog"
+            [modal]="true"
+            [draggable]="false"
+            [resizable]="false"
+            [showHeader]="false"
+            styleClass="romantic-dialog"
+            [style]="{width:'90vw', maxWidth:'600px'}">
+
+    <!-- Step 1 -->
+    <div *ngIf="step === 1" class="p-10 bg-white rounded-3xl text-center">
+
+      <i class="pi pi-envelope text-rose-500 text-6xl mb-6 animate-bounce"></i>
+
+      <div class="bg-rose-50 p-8 rounded-3xl border-2 border-dashed border-rose-200 min-h-[200px] flex items-center">
+        <p class="typewriter-text text-xl italic font-semibold text-gray-700"></p>
+      </div>
+
+      <button (click)="showVideo()"
+              class="mt-10 px-8 py-3 bg-rose-500 text-white text-lg font-bold rounded-full shadow-lg">
+        Surprise လေးကြည့်မယ် ❤️
+      </button>
+    </div>
+
+    <!-- Step 2 -->
+    <div *ngIf="step === 2"
+         class="video-box p-6 bg-white rounded-3xl text-center animate-fade-in">
+
+      <div class="relative w-full pb-[56.25%] rounded-2xl overflow-hidden shadow-xl mb-6">
+
+<iframe
+  class="absolute top-0 left-0 w-full h-full"
+  [src]="safeVideoUrl"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
+      </div>
+
+      <h2 class="text-4xl font-bold text-rose-600 mb-2">
+        I Love You ❤️
+      </h2>
+
+      <p class="text-gray-500 italic mb-6">
+        နင်က ငါ့ရဲ့ တစ်ဦးတည်းသော အချစ်ဆုံးပါ...
+      </p>
+
+      <p-button label="Close"
+                icon="pi pi-times"
+                [text]="true"
+                (onClick)="displayDialog=false">
+      </p-button>
+
+    </div>
+
+  </p-dialog>
+
+</div>
