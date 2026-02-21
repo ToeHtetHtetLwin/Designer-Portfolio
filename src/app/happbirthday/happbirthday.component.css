@@ -1,0 +1,23 @@
+/* Custom Timeline responsive fix */
+.p-timeline-event-opposite {
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .p-timeline-event-opposite {
+    display: block !important;
+  }
+}
+
+/* PrimeNG Carousel UI overide */
+.p-carousel-indicators .p-link {
+  background-color: #fbcfe8 !important;
+}
+
+.p-carousel-indicators .p-highlight .p-link {
+  background-color: #db2777 !important;
+}
+
+.reveal-item {
+  will-change: transform, opacity;
+}

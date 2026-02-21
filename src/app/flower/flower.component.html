@@ -1,0 +1,85 @@
+<div #containerRef class="flex justify-center  mb-5 container">
+  <div class="night-sky">
+    <div class="firefly" *ngFor="let i of [1,2,3,4,5,6,7,8]" 
+         [style.left.%]="i * 12" [style.top.%]="i * 10" 
+         [style.animation-delay.s]="i * 0.5">
+    </div>
+  </div>
+
+  <svg viewBox="0 0 200 200" class="bouquet-svg">
+    <defs>
+      <radialGradient id="flowerGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#ffccd5;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#ff4d6d;stop-opacity:1" />
+      </radialGradient>
+      
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="1.2" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g class="grass-layer" filter="url(#glow)">
+      <path d="M10,200 Q30,150 5,80" class="blade" />
+      <path d="M190,200 Q160,130 195,70" class="blade" />
+    </g>
+
+    <g class="flowers" filter="url(#glow)">
+      
+      <g class="f-item" transform="translate(70, 80)">
+        <path class="stem" d="M30,120 Q35,80 10,20" />
+        <path class="leaf l-left" d="M28,100 Q15,95 10,80 Q25,85 28,100" />
+        <path class="leaf l-right" d="M32,80 Q45,75 50,60 Q35,65 32,80" />
+        <g class="bloom-group" transform="translate(10, 20)">
+           <circle class="p-petal" r="8" cx="0" cy="-6" />
+           <circle class="p-petal" r="8" cx="0" cy="6" />
+           <circle class="p-petal" r="8" cx="-6" cy="0" />
+           <circle class="p-petal" r="8" cx="6" cy="0" />
+           <circle r="3" fill="#fff" />
+        </g>
+      </g>
+      
+      <g class="f-item" transform="translate(100, 70)">
+        <path class="stem" d="M0,130 L0,0" />
+        <path class="leaf l-left" d="M0,100 Q-15,90 -20,70 Q-5,80 0,100" />
+        <path class="leaf l-right" d="M0,70 Q15,60 20,40 Q5,50 0,70" />
+        <path class="leaf l-left" d="M0,40 Q-10,30 -15,10 Q-5,20 0,40" />
+        <g class="bloom-group">
+           <circle class="p-petal" r="10" cx="0" cy="-8" />
+           <circle class="p-petal" r="10" cx="0" cy="8" />
+           <circle class="p-petal" r="10" cx="-8" cy="0" />
+           <circle class="p-petal" r="10" cx="8" cy="0" />
+           <circle r="4" fill="#fff" />
+        </g>
+      </g>
+
+      <g class="f-item" transform="translate(130, 90)">
+        <path class="stem" d="M-30,110 Q-25,70 0,15" />
+        <path class="leaf l-left" d="M-28,90 Q-40,85 -45,70 Q-30,75 -28,90" />
+        <path class="leaf l-right" d="M-20,60 Q-5,55 0,40 Q-15,45 -20,60" />
+        <g class="bloom-group" transform="translate(0, 15)">
+           <circle class="p-petal" r="8" cx="0" cy="-6" />
+           <circle class="p-petal" r="8" cx="0" cy="6" />
+           <circle class="p-petal" r="8" cx="-6" cy="0" />
+           <circle class="p-petal" r="8" cx="6" cy="0" />
+           <circle r="3" fill="#fff" />
+        </g>
+      </g>
+    </g>
+
+    <g class="sparkle-layer">
+      <circle class="sparkle" cx="80" cy="95" r="1.5" />
+      <circle class="sparkle" cx="100" cy="65" r="1.2" />
+      <circle class="sparkle" cx="130" cy="100" r="1.5" />
+      <circle class="sparkle" cx="90" cy="75" r="1" />
+      <circle class="sparkle" cx="110" cy="85" r="1" />
+      <path class="sparkle star" d="M75,105 l1,3 l3,1 l-3,1 l-1,3 l-1,-3 l-3,-1 l3,-1 z" />
+      <path class="sparkle star" d="M125,75 l1,3 l3,1 l-3,1 l-1,3 l-1,-3 l-3,-1 l3,-1 z" />
+    </g>
+  </svg>
+
+  <div class="message text-xl">Flowers for you 🌹</div>
+</div>

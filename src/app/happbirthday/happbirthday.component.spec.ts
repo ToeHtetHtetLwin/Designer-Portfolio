@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { HappbirthdayComponent } from './happbirthday.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('HappbirthdayComponent', () => {
+  let component: HappbirthdayComponent;
+  let fixture: ComponentFixture<HappbirthdayComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
+      imports: [HappbirthdayComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(HappbirthdayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
