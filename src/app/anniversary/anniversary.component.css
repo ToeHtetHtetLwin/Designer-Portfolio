@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Inter:wght@200;400&display=swap');
+
+:host {
+  display: block;
+  background-color: #0a0a0a;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* Fixes the white gap by ensuring the body background matches */
+:host-context(html), :host-context(body) {
+  background-color: #0a0a0a;
+  margin: 0;
+}
+
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
+
+iframe {
+  display: block;
+  vertical-align: middle;
+  pointer-events: none; 
+  filter: contrast(1.1) brightness(0.6);
+}
+
+.photo-card img {
+  display: block;
+  transition: filter 1s ease-in-out, transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #db2777;
+  border-radius: 10px;
+}
+
+/* THE FIX: Replaced the Tailwind bracket selector with a standard one */
+.min-h-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+footer {
+  margin-bottom: 0 !important;
+  padding-bottom: 10rem;
+}

@@ -10,7 +10,7 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 export class FlowerComponent implements AfterViewInit {
   isVisualizing = true;
-  fireflyCount = new Array(15); // Increased count for better atmosphere
+  fireflyCount = new Array(15);
 
   ngAfterViewInit() {
     this.randomizeFireflies();

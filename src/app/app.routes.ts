@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
-import { FlowerComponent } from './flower/flower.component';
 
-export const routes: Routes = [{ path: '', component: FlowerComponent }];
+import { AnniversaryComponent } from './anniversary/anniversary.component';
+
+export const routes: Routes = [{ path: '', component:AnniversaryComponent }];

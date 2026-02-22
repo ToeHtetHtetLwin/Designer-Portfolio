@@ -8,32 +8,9 @@
   box-sizing: border-box;
 }
 
-/* 2. Lock the Viewport */
-html, body {
-  width: 100%;
-  height: 100%;
-  /* Prevents both horizontal and vertical scrollbars */
-  overflow: hidden; 
-  /* Setting a dark background here prevents "white flashes" during load */
-  background-color: #000;
-  /* Removes tap highlight on mobile devices */
-  -webkit-tap-highlight-color: transparent;
-}
 
-/* 3. Angular Component Root Setup */
-/* This ensures the component tag itself takes up the full screen */
-app-root {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-}
 
-/* 4. Smooth Font Rendering */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 
 /* 5. SVG Fix */
 /* Global fix to prevent the "inline descender" gap at the bottom of SVGs */
