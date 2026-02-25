@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
+import { CakeComponent } from './cake/cake.component';
 
-import { AnniversaryComponent } from './anniversary/anniversary.component';
-
-export const routes: Routes = [{ path: '', component:AnniversaryComponent }];
+export const routes: Routes = [{ path: '', component:CakeComponent }];
