@@ -1,0 +1,24 @@
+.scene {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+canvas {
+  filter: drop-shadow(0 0 10px #ff0033);
+}
+
+.label {
+  position: absolute;
+  bottom: 2rem;
+  color: #550000;
+  font-family: monospace;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}

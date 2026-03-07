@@ -1,0 +1,41 @@
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<div class="relative w-full h-screen bg-[#12050e] flex items-center justify-center overflow-hidden">
+  
+  <div #particleContainer class="absolute inset-0 z-0 pointer-events-none"></div>
+
+  <div class="relative flex items-center justify-center w-full h-full p-6 z-10">
+    <svg id="heart-svg" 
+      class="w-[85vw] h-auto max-w-[700px] drop-shadow-[0_0_50px_rgba(255,77,109,0.5)]" 
+      viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+      
+      <path #heartPath
+        id="heart-path"
+        d="M256 448l-30.164-27.211C118.718 322.442 56 265.607 56 194.017 56 135.507 101.83 89.677 160.34 89.677c33.064 0 64.8 15.385 85.344 39.549 20.544-24.164 52.28-39.549 85.344-39.549 58.51 0 104.34 45.83 104.34 104.34 0 71.59-62.718 128.425-169.836 226.772L256 448z"
+        stroke="url(#loveGradient)"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      
+      <defs>
+        <linearGradient id="loveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff0a54" />
+          <stop offset="100%" stop-color="#ff85a1" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <h1 id="lyrics-display" 
+        class="dancing-script text-3xl md:text-5xl lg:text-7xl text-pink-100 text-center px-10 leading-tight drop-shadow-md">
+      </h1>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 z-20">
+    <button class="px-10 py-3 bg-white/10 hover:bg-pink-600/40 border border-white/20 text-white rounded-full backdrop-blur-lg transition-all duration-500 hover:scale-110 active:scale-95 shadow-xl">
+      Click to feel the magic ✨
+    </button>
+  </div>
+</div>

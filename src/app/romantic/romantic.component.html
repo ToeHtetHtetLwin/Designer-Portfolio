@@ -1,0 +1,39 @@
+<div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black flex items-center justify-center p-6 font-mono">
+  
+  <div class="max-w-md w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl text-center">
+    
+    <h1 class="text-pink-400 text-2xl font-bold mb-6 tracking-widest uppercase">
+      Love Decoder v1.0
+    </h1>
+
+    <div class="bg-black/40 rounded-lg p-6 mb-8 border border-pink-500/30 min-h-[100px] flex items-center justify-center">
+      <p [ngClass]="{'text-pink-500': !isDecoded(), 'text-green-400': isDecoded()}" 
+         class="text-xl break-all transition-colors duration-500 leading-relaxed">
+        {{ displayText() }}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <input 
+        type="text" 
+        [ngModel]="userInput()" 
+        (ngModelChange)="userInput.set($event)"
+        placeholder="Enter Secret Key..." 
+        class="w-full bg-transparent border-b-2 border-pink-500 text-white p-2 text-center focus:outline-none focus:border-white transition-all uppercase"
+      />
+      
+      <button 
+        (click)="decode()"
+        class="bg-pink-600 hover:bg-pink-500 text-white font-bold py-3 rounded-full shadow-lg shadow-pink-500/20 active:scale-95 transition-transform"
+      >
+       
+        <span>လျှို့၀ှက်ချက်သိရဖို့ နှိပ်ပါ</span>
+      </button>
+    </div>
+
+    <p class="text-gray-500 text-xs mt-8 italic">
+      "Built with Love"
+    </p>
+
+  </div>
+</div>
