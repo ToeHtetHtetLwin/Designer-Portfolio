@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
-import { LoveComponent } from './love/love.component';
 
-export const routes: Routes = [{ path: '', component: LoveComponent }];
+import { HappbirthdayComponent } from './happbirthday/happbirthday.component';
+import { CrushComponent } from './crush/crush.component';
+import { FloatingCanvasComponent } from './floating-canvas/floating-canvas.component';
+export const routes: Routes = [{ path: '', component: FloatingCanvasComponent }];

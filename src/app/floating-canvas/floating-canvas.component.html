@@ -1,0 +1,37 @@
+<div *ngIf="!isUnlocked" class="fixed inset-0 z-[100] flex items-center justify-center bg-neutral-950 p-4">
+  <div class="absolute w-64 h-64 bg-pink-500/20 rounded-full blur-[120px]"></div>
+  
+  <div class="relative w-full max-w-md p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl flex flex-col items-center">
+    <h2 class="text-white text-2xl font-light mb-8 tracking-[0.2em]">WELCOME TO MY WORLD</h2>
+    
+    <input type="password" [(ngModel)]="passwordInput" placeholder="Enter Password" 
+           class="w-full p-4 mb-6 rounded-2xl bg-black/40 text-white border border-pink-500/50 focus:border-pink-400 outline-none transition-all placeholder:text-neutral-500 text-center text-lg">
+    
+    <button (click)="checkPassword()" 
+            class="w-full py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-2xl font-medium shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:scale-105 transition-all">
+      UNLOCK
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isUnlocked" 
+     class="relative w-full h-screen bg-black overflow-hidden touch-none" 
+    >
+  
+  <div *ngFor="let photo of photos" #floatingItem 
+       class="absolute z-10 p-1 bg-white/10 backdrop-blur-md rounded-full border border-pink-500/30 will-change-transform">
+    <img [src]="photo" class="w-16 h-16 lg:w-32 lg:h-32 rounded-full object-cover">
+  </div>
+
+  <div *ngFor="let msg of messages" #floatingItem 
+       class="absolute z-20 px-6 py-3 bg-pink-900/40 text-pink-100 rounded-full border border-pink-500/50 backdrop-blur-sm whitespace-nowrap shadow-lg text-sm lg:text-lg will-change-transform">
+    {{ msg }}
+  </div>
+
+  <div *ngFor="let emoji of emojis" #floatingItem 
+       class="absolute z-10 text-3xl lg:text-5xl select-none will-change-transform">
+    {{ emoji }}
+  </div>
+
+  <div #particleContainer class="absolute inset-0 z-50 pointer-events-none"></div>
+</div>

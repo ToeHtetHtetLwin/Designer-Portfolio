@@ -1,0 +1,46 @@
+/* အဓိက Background Gradient */
+:host {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #1f0815 0%, #050505 100%);
+}
+
+/* ပုံလေးတွေကို အပေါ်မှာတင်ထားဖို့ */
+.absolute {
+    position: absolute;
+    will-change: transform;
+}
+
+/* Mouse trail နဲ့ ပန်းပွင့်လေးတွေရဲ့ အရောင် */
+.bg-pink-300 {
+    background-color: #fca5a5;
+}
+
+.bg-pink-400 {
+    background-color: #f472b6;
+}
+
+/* ပုံလေးတွေရဲ့ Hover Effect */
+.photo-card-style {
+    transition: all 0.3s ease;
+}
+
+.photo-card-style:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: #ec4899;
+}
+
+input::placeholder {
+  color: #525252;
+}
+
+/* Glassmorphism အတွက် */
+.backdrop-blur-xl {
+  backdrop-filter: blur(20px);
+}
+
+/* Button အနည်းငယ် တောက်ပစေရန် */
+button {
+  transition: all 0.3s ease;
+}
