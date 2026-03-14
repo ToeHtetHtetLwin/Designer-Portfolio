@@ -33,8 +33,7 @@ export class FloatingCanvasComponent implements AfterViewInit {
     'https://i.pinimg.com/236x/ed/91/78/ed917899e62451bf42a1b6ed1f22e7fc.jpg',
     'https://i.pinimg.com/736x/24/21/6b/24216b2c902278740b897242f601092b.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgTFbfRo6TctsNMn0hrfuGBwthZOjVdJ5feA&s',
-    'https://i.pinimg.com/736x/24/21/6b/24216b2c902278740b897242f601092b.jpg',
-    'https://i.pinimg.com/736x/24/21/6b/24216b2c902278740b897242f601092b.jpg',
+   
   ];
   messages = [
     'Hello!',
@@ -74,27 +73,27 @@ export class FloatingCanvasComponent implements AfterViewInit {
     }
   }
 
-  initFloatingElements() {
+initFloatingElements() {
     this.floatingItems.forEach((item) => {
       const el = item.nativeElement;
-      gsap.set(el, {
-        x: `${Math.random() * 90}vw`,
-        y: '110vh',
-        scale: 0.8 + Math.random() * 0.4,
-      });
+      // Duration ကို တိုးလိုက်ခြင်းဖြင့် ပိုနှေးကွေးသွားပါမယ်
+      const randomDuration = 20 + Math.random() * 10; 
+      
+      gsap.set(el, { x: `${Math.random() * 80 + 5}vw`, y: '110vh', scale: 0.8 + Math.random() * 0.2 });
+
       gsap.to(el, {
         y: '-20vh',
-        duration: 15 + Math.random() * 10,
+        duration: randomDuration,
         repeat: -1,
-        ease: 'none',
+        ease: 'sine.inOut', // 'none' ထက် ပိုပြီး ပျော့ပျောင်းတဲ့ လှုပ်ရှားမှုကို ရစေပါတယ်
         delay: Math.random() * 15,
-        modifiers: {
-          x: (x) => `${parseFloat(x) + Math.sin(parseFloat(x) / 50) * 40}px`,
-        },
+        modifiers: { 
+          // x ရွေ့လျားမှုကိုလည်း ပိုနှေးအောင် လုပ်ထားပါတယ်
+          x: (x) => `${parseFloat(x) + Math.sin(parseFloat(x) / 100) * 20}px` 
+        }
       });
     });
   }
-
   initFallingPetals() {
     for (let i = 0; i < 15; i++) {
       const petal = document.createElement('div');
