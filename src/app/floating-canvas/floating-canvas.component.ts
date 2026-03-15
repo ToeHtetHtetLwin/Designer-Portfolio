@@ -33,6 +33,9 @@ export class FloatingCanvasComponent implements AfterViewInit {
     'https://i.pinimg.com/236x/ed/91/78/ed917899e62451bf42a1b6ed1f22e7fc.jpg',
     'https://i.pinimg.com/736x/24/21/6b/24216b2c902278740b897242f601092b.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgTFbfRo6TctsNMn0hrfuGBwthZOjVdJ5feA&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRACqoq0K_surjPEVgNrH1tWNcbGuMFlVrzQg&s',
+    'https://i.pinimg.com/236x/ed/91/78/ed917899e62451bf42a1b6ed1f22e7fc.jpg',
+    'https://i.pinimg.com/736x/24/21/6b/24216b2c902278740b897242f601092b.jpg'
    
   ];
   messages = [
