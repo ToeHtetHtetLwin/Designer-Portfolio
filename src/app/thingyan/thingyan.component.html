@@ -1,0 +1,91 @@
+<div
+  class="h-screen w-full bg-black overflow-hidden flex flex-col items-center justify-center relative font-sans select-none"
+>
+  <div
+    *ngFor="let f of flowers"
+    class="flower absolute -top-10 text-yellow-400 text-3xl pointer-events-none z-0"
+  >
+    🌿🏵️
+  </div>
+
+  <div
+    *ngIf="!isCardVisible()"
+    class="z-10 flex flex-col items-center cursor-pointer group mb-6 transition-all duration-500"
+    (click)="onPotClick()"
+  >
+    <div class="relative">
+      <img
+        src="padauk.png"
+        alt="Padauk Pot"
+        class="w-64 md:w-80 transition-transform group-hover:scale-105 group-active:scale-95 duration-300 drop-shadow-[0_0_20px_rgba(250,204,21,0.3)]"
+      />
+
+      <div
+        class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full -z-10 animate-pulse"
+      ></div>
+    </div>
+
+    <p
+      class="text-yellow-400 font-bold mt-6 tracking-[0.2em] animate-pulse text-3xl drop-shadow-md"
+    >
+      မင်းကို ​ရေ​လောင်းပါရ​စေ 💦
+    </p>
+  </div>
+
+  <div
+    *ngIf="isSplashing()"
+    class="absolute inset-0 z-50 flex items-center justify-center pointer-events-none transition-opacity duration-300"
+  >
+    <img
+      src="water.webp"
+      class="w-[80%] h-auto max-w-[600px] object-contain mix-blend-screen scale-110 md:scale-100 transition-transform duration-500"
+    />
+  </div>
+  <div
+    *ngIf="isCardVisible()"
+    class="message-box z-30 bg-white/10 backdrop-blur-2xl border border-white/20 p-6 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-center max-w-sm mx-4 ring-1 ring-white/10"
+  >
+    <h2
+      class="text-2xl font-black text-yellow-400 mb-5 tracking-tight drop-shadow-sm"
+    >
+      ပျော်ရွှင်ဖွယ်သင်္ကြန်ဖြစ်ပါစေ
+    </h2>
+
+    <div
+      class="mb-6 overflow-hidden rounded-3xl border border-white/10 aspect-video bg-black shadow-inner group relative"
+    >
+      <iframe
+        [src]="videoUrl"
+        class="w-full h-full"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+        "
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+
+    <div class="min-h-[60px] px-2 flex items-center justify-center">
+      <p
+        class="typewriter-text text-gray-100 italic text-base md:text-lg leading-relaxed inline font-medium"
+      ></p>
+      <span
+        class="w-1.5 h-6 bg-yellow-400 inline-block align-middle ml-1 animate-pulse rounded-full"
+      ></span>
+    </div>
+
+    <div
+      class="mt-6 py-2.5 px-6 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full inline-block shadow-lg active:scale-95 transition-transform cursor-default"
+    >
+      <span class="font-extrabold text-black text-xs uppercase tracking-widest">
+        Miss Level: {{ missLevel() }}% ❤️
+      </span>
+    </div>
+  </div>
+</div>
